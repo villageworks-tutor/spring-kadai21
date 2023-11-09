@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.Thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>お問い合わせ</title>
+</head>
+<body>
+	<div th:if="${genre == 1}">
+		<h1>資料請求ありがとうございます</h1>
+	</div>
+	<div th:if="${genre == 2}">
+		<h1>見積もり依頼ありがとうございます</h1>
+	</div>
+	<table border="1">
+		<tr>
+			<th>言語</th>
+			<td>
+				<span th:each="lang : ${langList}" th:text="${lang}+ '、'"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>詳細内容</th>
+			<td>[[${detail}]]</td>
+		</tr>
+		<tr>
+			<th>実施予定日</th>
+			<td>[[${dueDate}]]</td>
+		</tr>
+		<tr>
+			<th>お名前［必須］</th>
+			<td th:text="${name}"></td>
+		</tr>
+		<tr>
+			<th>メールアドレス［必須］</th>
+			<td>[[${email}]]</td>
+		</tr>
+	</table>
+</body>
+</html>
